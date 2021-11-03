@@ -1,0 +1,9 @@
+.git
+.cache
+*.md
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env

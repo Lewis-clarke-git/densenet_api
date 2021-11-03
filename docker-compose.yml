@@ -1,0 +1,23 @@
+version: '3.4'
+services:
+  dev:
+    build:
+      context: .
+      target: dev
+    image: 'densenetapi_dev'
+    container_name: 'densenetapi_dev'
+    volumes:
+      - './app:/code/app/'
+      - './model_weights:/code/model_weights/'
+      - './test:/code/test/'
+    command: "uvicorn app.main:app --host 0.0.0.0 --port 5000 --reload"
+    ports:
+      - "5000:5000"
+  prod:
+    build:
+      context: .
+      target: production
+    image: 'densenetapi'
+    container_name: 'densenetapi'
+    ports:
+      - '8080:8080'
